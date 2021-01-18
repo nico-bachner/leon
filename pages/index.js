@@ -1,65 +1,62 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import Preview from '../components/preview'
+
+function FooterItem(props) {
+    return (
+        <li className="my-2">
+            <Link href="/">
+                <a className="font-semibold uppercase">
+                    {props.children}
+                </a>
+            </Link>
+        </li>
+    );
+}
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    return (
+        <>
+            <Head>
+                <title>Leon Liang</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+            <header className="hidden lg:block fixed left-8 lg:left-12 xl:left-16 2xl:left-20 top-8 lg:top-12 xl:top-16 2xl:top-20">
+                <h1 className="font-bold uppercase text-blue-700">Leon Liang</h1>
+                <h2 className="text-4xl font-extrabold">Aspiring CS <br/> Student.</h2>
+            </header>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+            <main className="float-right mx-6 md:mx-12 lg:mx-0 lg:pl-72 xl:pl-80 2xl:pl-96">
+                <Preview
+                    href="/lts"
+                    image="/images/fintech-pitch.png"
+                />
+                <Preview
+                    href="/project-butterfly"
+                    image="/images/project-butterfly-pitch.jpg"
+                />
+                <Preview
+                    href="/luxmun"
+                    image="/images/luxmun.jpg"
+                />
+                <Preview
+                    href="/creative-coding-for-all"
+                    image="/images/cc4all.jpg"
+                />
+                <Preview
+                    href="/cansat"
+                    image="/images/cansat.png"
+                />
+            </main>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+            <footer className="hidden lg:block fixed left-8 lg:left-12 xl:left-16 2xl:left-20 bottom-8 lg:bottom-12 xl:bottom-16 2xl:bottom-20">
+                <ul>
+                    <FooterItem>Projects</FooterItem>
+                    <FooterItem>About me</FooterItem>
+                    <FooterItem>Github</FooterItem>
+                </ul>
+            </footer>
+        </>
+    )
 }
